@@ -1,0 +1,23 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a08760588705.welcome.base.Fragmento3"
+    android:id="@+id/fragmento4"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/txtFrag4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Fragmento 4" />
+
+    <ListView
+        android:id="@+id/list_contatos"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+    </ListView>
+
+</FrameLayout>
