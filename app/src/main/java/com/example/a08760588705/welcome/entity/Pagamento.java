@@ -11,7 +11,7 @@ import java.util.Date;
 public class Pagamento implements BaseColumns {
 
     private Contato contato;
-    private Atendimento atendimento;
+    private com.example.a08760588705.welcome.entity.Atendimento atendimento;
     private Float valor;
     private String modalidade;
     private Date dataPagamento;
@@ -24,7 +24,7 @@ public class Pagamento implements BaseColumns {
         this.contato = contato;
     }
 
-    public Atendimento getAtendimento() {
+    public com.example.a08760588705.welcome.entity.Atendimento getAtendimento() {
         return atendimento;
     }
 

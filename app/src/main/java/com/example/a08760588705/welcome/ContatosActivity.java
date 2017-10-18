@@ -1,24 +1,18 @@
 package com.example.a08760588705.welcome;
 
-import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.os.Build;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.example.a08760588705.welcome.entity.Atendimento;
-import com.example.a08760588705.welcome.provider.AtendimentoProvider;
-import com.example.a08760588705.welcome.provider.Notes;
 
 public class ContatosActivity extends AppCompatActivity {
 

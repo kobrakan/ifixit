@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.a08760588705.welcome.provider.QuickNoteProvider;
-
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override

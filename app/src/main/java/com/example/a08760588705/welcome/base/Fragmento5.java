@@ -1,6 +1,5 @@
 package com.example.a08760588705.welcome.base;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,9 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CalendarView;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.a08760588705.welcome.R;
+import com.example.a08760588705.welcome.utils.IfixitUtils;
 
 
 public class Fragmento5 extends Fragment {
@@ -59,12 +58,18 @@ public class Fragmento5 extends Fragment {
 //        simpleCalendarView.setSelectedWeekBackgroundColor(Color.RED); // red color for the selected week's background
 //        simpleCalendarView.setWeekSeparatorLineColor(Color.GREEN); // green color for the week separator line
         // perform setOnDateChangeListener event on CalendarView
+
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 // display the selected date by using a toast
-                Toast.makeText(getActivity().getApplicationContext(), dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+                IfixitUtils.alertas(getActivity(), dayOfMonth + "/" + month + "/" + year);
             }
+
+
         });
     }
+
+
+
 }

@@ -3,12 +3,12 @@ package com.example.a08760588705.welcome;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.ContactsContract.RawContacts.Data;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.provider.ContactsContract.RawContacts.Data;
 
 public class ContatoActivity extends AppCompatActivity {
 

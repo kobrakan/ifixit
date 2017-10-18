@@ -1,8 +1,8 @@
 package com.example.a08760588705.welcome.utils;
 
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-import android.text.Editable;
 
 /**
  * Created by 08760588705 on 05/10/17.

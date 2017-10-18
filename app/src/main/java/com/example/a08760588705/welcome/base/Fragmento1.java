@@ -1,45 +1,31 @@
 package com.example.a08760588705.welcome.base;
 
-import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.a08760588705.welcome.R;
 import com.example.a08760588705.welcome.entity.Atendimento;
 import com.example.a08760588705.welcome.provider.DBHelper;
 import com.example.a08760588705.welcome.utils.IfixitUtils;
 import com.example.a08760588705.welcome.utils.Mask;
-import com.facebook.stetho.inspector.protocol.module.Database;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Fragmento1 extends Fragment{

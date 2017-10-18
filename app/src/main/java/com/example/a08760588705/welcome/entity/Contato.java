@@ -19,10 +19,10 @@ public class Contato implements BaseColumns {
     private String email;
     private List<Telefone> telefones;
     private Endereco endereco;
-    private List<Atendimento> atendimentos;
+    private List<com.example.a08760588705.welcome.entity.Atendimento> atendimentos;
     private List<Pagamento> pagamentos;
 
-    public List<Atendimento> getAtendimentos() {
+    public List<com.example.a08760588705.welcome.entity.Atendimento> getAtendimentos() {
         return atendimentos;
     }
 

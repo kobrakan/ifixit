@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 import com.example.a08760588705.welcome.provider.AtendimentoProvider;
-import com.example.a08760588705.welcome.provider.QuickNoteProvider;
 
 import java.util.Date;
 

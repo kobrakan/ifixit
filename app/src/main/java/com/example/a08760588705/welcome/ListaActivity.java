@@ -1,7 +1,7 @@
 package com.example.a08760588705.welcome;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class ListaActivity extends AppCompatActivity {
 

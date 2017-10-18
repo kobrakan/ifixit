@@ -1,14 +1,11 @@
 package com.example.a08760588705.welcome.base;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,14 +17,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.example.a08760588705.welcome.R;
-import com.example.a08760588705.welcome.provider.DBHelper;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class Fragmento4 extends Fragment {

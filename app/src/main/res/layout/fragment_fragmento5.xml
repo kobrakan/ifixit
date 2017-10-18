@@ -12,7 +12,6 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:maxDate="01/01/2019"
         android:minDate="01/01/2017"
         android:selectedWeekBackgroundColor="@color/colorWhite"
         android:selectedDateVerticalBar="@color/colorAccent"

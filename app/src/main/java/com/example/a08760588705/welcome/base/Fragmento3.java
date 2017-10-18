@@ -1,12 +1,9 @@
 package com.example.a08760588705.welcome.base;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,17 +14,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 import com.example.a08760588705.welcome.R;
 import com.example.a08760588705.welcome.entity.Atendimento;
 import com.example.a08760588705.welcome.provider.DBHelper;
 import com.example.a08760588705.welcome.utils.IfixitUtils;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class Fragmento3 extends Fragment {
@@ -70,7 +61,7 @@ public class Fragmento3 extends Fragment {
     private void displayListView(View view) {
         cursor = getActivity().getContentResolver().query(Atendimento.CONTENT_URI, null, null, null, null);
 
-        String[] fromFieldNames = {"_id",Atendimento.CLIENTE, Atendimento.DATA_ATENDIMENTO, Atendimento.DEFEITO, Atendimento.SOLUCAO};
+        String[] fromFieldNames = {"_id", Atendimento.CLIENTE, Atendimento.DATA_ATENDIMENTO, Atendimento.DEFEITO, Atendimento.SOLUCAO};
         int[] toViewsID = {R.id.lblCliente, R.id.lblDataAtendimento, R.id.lblDefeito, R.id.lblSolucao};
          // the XML defined views which the data will be bound to
         IfixitUtils.alertas(getActivity(), String.valueOf(cursor.getCount()));

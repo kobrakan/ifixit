@@ -10,21 +10,22 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
+import com.example.a08760588705.welcome.entity.Agendamento;
 import com.example.a08760588705.welcome.entity.Atendimento;
 
 import java.util.HashMap;
 
+import static com.example.a08760588705.welcome.provider.DBHelper.AGENDAMENTO;
+import static com.example.a08760588705.welcome.provider.DBHelper.AGENDAMENTO_TABLE;
 import static com.example.a08760588705.welcome.provider.DBHelper.ATENDIMENTO;
 import static com.example.a08760588705.welcome.provider.DBHelper.ATENDIMENTO_TABLE;
-import static com.example.a08760588705.welcome.provider.DBHelper.NOTES;
-import static com.example.a08760588705.welcome.provider.DBHelper.NOTES_TABLE;
 
 public class AtendimentoProvider extends ContentProvider {
 
     public static final String AUTHORITY =
             "com.example.a08760588705.welcome.provider";
 
-    public static final String TAG = "QuickNoteProvider";
+    public static final String TAG = "AtendimentoProvider";
 
     private DBHelper mHelper;
 
@@ -44,6 +45,7 @@ public class AtendimentoProvider extends ContentProvider {
     static {
         mMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         mMatcher.addURI(DBHelper.AUTHORITY, ATENDIMENTO_TABLE, ATENDIMENTO);
+        mMatcher.addURI(DBHelper.AUTHORITY, AGENDAMENTO_TABLE, AGENDAMENTO);
     }
     public AtendimentoProvider() {
     }
@@ -56,6 +58,9 @@ public class AtendimentoProvider extends ContentProvider {
         switch (mMatcher.match(uri)) {
             case ATENDIMENTO:
                 count = db.delete(ATENDIMENTO_TABLE, selection, selectionArgs);
+                break;
+            case AGENDAMENTO:
+                count = db.delete(AGENDAMENTO_TABLE, selection, selectionArgs);
                 break;
             default:
                 throw new IllegalArgumentException("URI Desconhecida " + uri);
@@ -70,6 +75,8 @@ public class AtendimentoProvider extends ContentProvider {
         switch (mMatcher.match(uri)) {
             case ATENDIMENTO:
                 return Atendimento.CONTENT_TYPE;
+            case AGENDAMENTO:
+                return Agendamento.CONTENT_TYPE;
             default:
                 throw new IllegalArgumentException(
                         "URI desconhecida " + uri);
@@ -81,14 +88,23 @@ public class AtendimentoProvider extends ContentProvider {
         Uri retornoUri = uri;
         SQLiteDatabase db;
         long rowId;
+        db = mHelper.getWritableDatabase();
+
         switch (mMatcher.match(uri)) {
             case ATENDIMENTO:
-                db = mHelper.getWritableDatabase();
                 rowId = db.insert(ATENDIMENTO_TABLE, null, values);
                 if(rowId >0){
                     Uri atendimentoUri = ContentUris.withAppendedId(Atendimento.CONTENT_URI, rowId);
                     getContext().getContentResolver().notifyChange(atendimentoUri, null);
                     retornoUri = atendimentoUri;
+                }
+                break;
+            case AGENDAMENTO:
+                rowId = db.insert(AGENDAMENTO_TABLE, null, values);
+                if(rowId >0){
+                    Uri agendamentoUri = ContentUris.withAppendedId(Agendamento.CONTENT_URI, rowId);
+                    getContext().getContentResolver().notifyChange(agendamentoUri, null);
+                    retornoUri = agendamentoUri;
                 }
                 break;
             default:
@@ -121,11 +137,14 @@ public class AtendimentoProvider extends ContentProvider {
                 builder.setTables(ATENDIMENTO_TABLE);
                 builder.setProjectionMap(mProjection);
                 break;
+            case AGENDAMENTO:
+                builder.setTables(AGENDAMENTO_TABLE);
+                builder.setProjectionMap(mProjection);
+                break;
             default:
                 throw new IllegalArgumentException(
                         "URI desconhecida " + uri);
         }
-
 
         cursor = builder.query(db, projection, selection,selectionArgs, null, null, sortOrder);
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
@@ -137,9 +156,12 @@ public class AtendimentoProvider extends ContentProvider {
                       String[] selectionArgs) {
         // TODO: Implement this to handle requests to update one or more rows.
         int count;
+        SQLiteDatabase db = mHelper.getWritableDatabase();
         switch (mMatcher.match(uri)) {
             case ATENDIMENTO:
-                SQLiteDatabase db = mHelper.getWritableDatabase();
+                count = db.update(ATENDIMENTO_TABLE, values, selection, selectionArgs);
+                break;
+            case AGENDAMENTO:
                 count = db.update(ATENDIMENTO_TABLE, values, selection, selectionArgs);
                 break;
             default:
